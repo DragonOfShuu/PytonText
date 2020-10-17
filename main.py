@@ -53,9 +53,39 @@ def Question(text: str, AnswerType: type, clr: bool, InputPrompt: str):
   ***
   """
   while True:
-    Typed(text)
+    Typed(text, 0.3)
     if InputPrompt.upper() == "NORMAL":
       Answer = input(">>> ")
     else:
       Answer = input(InputPrompt)
 
+    if AnswerType == str:
+      str(Answer)
+      break  
+    
+    elif AnswerType == int:
+      try:
+        int(Answer)
+      except ValueError:
+        Typed("That was not an integer")
+      else:
+        break
+    
+    elif AnswerType == float:
+      try:
+        float(Answer)
+      except ValueError:
+        Typed("That was not a float")
+      else:
+        break
+    elif AnswerType == bool:
+      try:
+        bool(Answer)
+      except ValueError:
+        Typed("That was not a true or false statement")
+      else:
+        break
+
+    else:
+      TypeError("That was not an accepted Value")
+    
