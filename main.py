@@ -88,4 +88,32 @@ def Question(text: str, AnswerType: type, clr: bool, InputPrompt: str):
 
     else:
       TypeError("That was not an accepted Value")
+  
+  if clr: 
+    clear
+  return Answer;
     
+def Continue(text: str, clr: bool) -> str:
+  """
+  This function is used to ask the user to press enter to continue the code
+
+  ***
+
+  text: The text that is printed when they are prompted to press Enter. This
+  is normally "<Press Enter to Continue>"(type in "normal" for this argument if you want to use that)
+
+  clr: If true, the screen will be cleared after the enter key has been pressed
+  
+  ***
+
+  This function will also return anything that they typed.
+  """
+  if text.upper() == "NORMAL":
+    Continue1 = input("<Press Enter to Continue>")
+  else:
+    Continue1 = input("<" + text + ">")
+
+  if clr:
+    clear
+
+  return Continue1;
